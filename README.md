@@ -1,6 +1,13 @@
 # Metlife Crisis
 
-A personal fantasy football dashboard for Martin’s family league, survivor pool, and against-the-spread pick’em. Built for https://github.com/mgonzalvez/football and GitHub Pages at https://mgonzalvez.github.io/football/ once deployed.
+A personal fantasy football dashboard for Martin’s family league, survivor pool, and against-the-spread pick’em. Built for https://github.com/mgonzalvez/football and GitHub Pages at https://mgonzalvez.github.io/football/.
+
+## Documentation
+
+- [Weekly updates and recovery](docs/WEEKLY_UPDATES.md): what to supply, import versus publish, backups and current manual steps.
+- [Weekly data format](docs/DATA_FORMAT.md): required fields, examples and validation limits.
+- [Maintenance and deployment](docs/MAINTENANCE.md): source map, publishing, troubleshooting and rollback.
+- [Original project plan](PROJECT_PLAN.md): design intent and future scope, not a list of completed features.
 
 ## Run locally
 
@@ -29,9 +36,10 @@ The site does not submit Yahoo changes, fetch live scores, monitor news, or prov
 
 1. Add roster, matchup, available-player, survivor and pick’em screenshots to the local `data ` folder (the existing name has a trailing space).
 2. Request an update session to transcribe the data, verify current relevant sources, and prepare analysis. Raw screenshots must stay local.
-3. The canonical bundled snapshot is `site/lib/data/weekly-snapshot.json`. Update the two available-player JSON files alongside it as needed. Historical point totals are explicitly not weekly projections.
-4. Import a prepared weekly JSON in Updates & history for a local preview, or replace the bundled snapshot and publish a new build. Browser imports never publish automatically.
-5. Export snapshots as backups. Browser-local drafts and archives do not synchronize between devices. Export currently includes the imported snapshot, not local pick scenarios.
+3. Import does not update the separate waiver pool, hardcoded Week 1 labels or tiebreaker prose. Those currently require source edits; see the weekly guide.
+4. The canonical bundled snapshot is `site/lib/data/weekly-snapshot.json`. Update the two available-player JSON files alongside it as needed. Historical point totals are explicitly not weekly projections.
+5. Import a prepared weekly JSON in Updates & history for a local preview, or replace the bundled snapshot and publish a new build. Browser imports never publish automatically.
+6. Export snapshots as backups. Browser-local drafts and archives do not synchronize between devices. Export currently includes the imported snapshot, not local pick scenarios.
 
 The selected week comes from the snapshot or local archive; the app does not silently advance to an empty week. An imported snapshot must match the version 1 schema, legal roster configuration, and safe HTTPS source links. Source files in `planning/` retain the initial inputs and plan.
 
@@ -46,11 +54,11 @@ npm run typecheck
 npm run build
 ```
 
-The app uses `/football` as its production asset prefix, with a build step that stages the export at the GitHub Pages repository root. Change `site/next.config.ts` if the repository name or hosting path changes. The output is static and needs no server or API key. The site requests no search indexing, but the URL is public.
+The app uses `/football` as its production asset prefix, with a build step that stages the export at the GitHub Pages repository root. A path change also requires updating the favicon and packaging script; see the maintenance guide. The output is static and needs no server or API key. The site requests no search indexing, but the URL is public.
 
 ## Input privacy
 
-Root `.gitignore` excludes all `data*/` folders: settings screenshots contain group passwords. Only sanitized JSON is bundled. Never move raw screenshots or secrets into `site/public`, the build output, or tracked files. The Pages workflow uploads only the static export.
+Root `.gitignore` excludes root-level `/data*/` folders: settings screenshots contain group passwords. Only sanitized JSON is bundled. Never move raw screenshots or secrets into `site/public`, the build output, or tracked files. The Pages workflow uploads only the static export.
 
 ## Validation
 

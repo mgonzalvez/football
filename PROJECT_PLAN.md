@@ -1,5 +1,7 @@
 # Personal Fantasy Football Dashboard
 
+> Original design plan. The shipped product is Metlife Crisis. Consult README.md and docs/ for current behavior. Ranked waivers/trades, researched pick recommendations, a structured news/report renderer, results history, and fully data-driven weekly copy remain future work. The optimizer uses supplied projections rather than calculating scoring from raw statistics.
+
 ## Goal and agreed constraints
 
 Build a polished personal dashboard for tracking fantasy football, optimizing lineups, evaluating waivers and trades, and making survivor and pick'em decisions. Use free screenshot-assisted updates, GitHub Pages hosting, and an unshared public URL. Provide weekly briefings and an assistant interface. No paid data or AI dependency in the first version.
@@ -15,12 +17,12 @@ Source: user-supplied Yahoo screenshots inspected September 7, 2026. These are s
 - Commissioner trade review, one-day rejection period, trade deadline November 28, 2026. No draft-pick trades.
 - Four fantasy playoff teams, weeks 16–17, reseeding, higher seed wins playoff ties.
 - Survivor: FourthandLong, group 29886, entry 4, Metlife Crisis. One pick/week, one strike eliminates, playoffs included. Deadline five minutes before the first game of each week. Week 1 screenshot selection: Jacksonville. Team-reuse and postseason reset details remain unverified.
-- Pick'em: FourthandLong, group 38375, entry 5, MetLife Crisis. Against the spread, no confidence points, tiebreakers enabled, all weeks count, no playoffs. Deadline five minutes before each game. Separate tiebreaker deadlines must also be recorded.
+- Pick'em: FourthandLong, group 38375, entry 5, Metlife Crisis. Against the spread, no confidence points, tiebreakers enabled, all weeks count, no playoffs. Deadline five minutes before each game. Separate tiebreaker deadlines must also be recorded.
 - Pick'em screenshots include both an incomplete entry and a completed entry. Preserve their provenance; confirm the authoritative snapshot during import instead of treating file order as chronology.
 
 ## Experience and visual direction
 
-Working title: MetLife Command Center. Deep navy surfaces, electric blue accents, high-contrast text, restrained status colors, player/team imagery, generous spacing, and subtle motion respecting reduced-motion preferences. Responsive desktop navigation and compact mobile navigation. Avoid clutter and decorative metrics.
+Final name: Metlife Crisis, a pun on MetLife Stadium and midlife crisis. Use occasional light Giants-themed humor without obscuring decisions or deadlines. Deep navy surfaces, electric blue accents, high-contrast text, restrained status colors, player/team imagery, generous spacing, and subtle motion respecting reduced-motion preferences. Responsive desktop navigation and compact mobile navigation. Avoid clutter and decorative metrics.
 
 The first screen answers: what needs attention, what action is recommended, why, and by when? Show week selector, last-researched time, last screenshot update, next deadline in the user's timezone, matchup summary, survivor status, and pick'em completion.
 
